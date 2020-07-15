@@ -4,7 +4,7 @@ const methods = {
   async onGetAll(req, res){
     try {
       let result = await pointService.find(req)
-      res.success(result);
+      res.json(result);
     } catch (error) {
       res.error(error.message, error.status)
     }
