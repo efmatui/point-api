@@ -41,7 +41,7 @@ const databases = {
     const Sequelize = require("sequelize");
     const sequelize = new Sequelize('pts_db', config.trustUserName, config.trustPassword, {
       host: config.trustURL,
-      dialect: 'postgres',
+      dialect: 'mariadb',
       operatorsAliases: false,
       pool: {
         max: 5,

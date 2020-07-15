@@ -5,7 +5,7 @@ const methods = {
   async find(req) {
     return new Promise(async (resolve, reject) => {
       try {
-        let inserted = await point.findAll();
+        let inserted = await point.findAll({attributes: ['id', 'partner_id']});
         resolve(inserted)
       } catch (error) {
         reject(methods.error(error.message, 400))
