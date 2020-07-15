@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const config = require('../configs/app')
+const mariaDB = require('mariadb');
 
 const databases = {
 
@@ -25,8 +26,33 @@ const databases = {
 
   postgresql(){},
 
-  mssql(){}
+  mssql(){},
+
+  maria(){
+    const connection = mariaDB.createPool({
+      host: config.trustURL,
+      user: config.trustUserName,
+      password: config.trustPassword,
+    });
+    return connection;
+  },
+
+  sequelize(){
+    const Sequelize = require("sequelize");
+    const sequelize = new Sequelize('pts_db', config.trustUserName, config.trustPassword, {
+      host: config.trustURL,
+      dialect: 'postgres',
+      operatorsAliases: false,
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      }
+    });
+    return { Sequelize, sequelize};
+  },
 
 }
 
-module.exports = databases.mongoDB;
+module.exports = databases;
