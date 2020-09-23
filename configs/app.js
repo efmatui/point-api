@@ -1,6 +1,6 @@
 const path = require('path')
 const processEnvironment = require('dotenv').config({ path: path.resolve(__dirname, `../${process.env.NODE_ENV}.env`) })
-
+console.log(process.env.NODE_ENV)
 module.exports = {
   port: processEnvironment.parsed.PORT || 3000,
   isProduction: process.env.NODE_ENV === 'production',

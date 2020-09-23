@@ -1,10 +1,12 @@
 const pointService = require('../services/point.service');
+const databases = require("../configs/database");
 
 const methods = {
   async onGetAll(req, res){
     try {
       let result = await pointService.find(req)
-      res.json(result);
+      let mongo = await databases.mongoDB();
+      res.status(200).json(result);
     } catch (error) {
       res.error(error.message, error.status)
     }
