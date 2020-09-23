@@ -1,12 +1,14 @@
 const db = require('../models');
 const point = db.point;
+const logPoint = require('../collections/logPoint.collection');
 
 const methods = {
   async find(req) {
     return new Promise(async (resolve, reject) => {
       try {
-        let inserted = await point.findAll({attributes: ['id', 'partner_id']});
-        resolve(inserted)
+        // let inserted = await point.findAll();
+        let log = await logPoint.find({});
+        resolve(log)
       } catch (error) {
         reject(methods.error(error.message, 400))
       }

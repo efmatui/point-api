@@ -9,7 +9,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
     },
     ratio: {
-        field: 'ratio',
         type: Sequelize.INTEGER,
     },
     merchantId: {

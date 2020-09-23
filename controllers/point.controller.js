@@ -4,8 +4,8 @@ const databases = require("../configs/database");
 const methods = {
   async onGetAll(req, res){
     try {
-      let result = await pointService.find(req)
       let mongo = await databases.mongoDB();
+      let result = await pointService.find(req)
       res.status(200).json(result);
     } catch (error) {
       res.error(error.message, error.status)
