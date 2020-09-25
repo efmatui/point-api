@@ -1,15 +1,14 @@
-const path = require('path')
-const processEnvironment = require('dotenv').config({ path: path.resolve(__dirname, `../${process.env.NODE_ENV}.env`) })
-console.log(process.env.NODE_ENV)
+require('dotenv').config()
+
 module.exports = {
-  port: processEnvironment.parsed.PORT || 3000,
+  port: process.env.PORT || 3000,
   isProduction: process.env.NODE_ENV === 'production',
-  apiVersion: processEnvironment.parsed.API_VERSION || 1,
-  token_exp_days: processEnvironment.parsed.TOKEN_EXP_DAYS || 1,
-  secret: processEnvironment.parsed.NODE_ENV === 'production' ? process.env.SECRET : 'my-secret',
-  mongodbUri: processEnvironment.parsed.MONGODB_URI,
-  pageLimit: processEnvironment.parsed.PAGE_LIMIT || 15,
-  trustURL: processEnvironment.parsed.TRUST_URL,
-  trustUserName: processEnvironment.parsed.TRUST_USER_NAME,
-  trustPassword: processEnvironment.parsed.TRUST_PASSWORD
+  apiVersion: process.env.API_VERSION || 1,
+  token_exp_days: process.env.TOKEN_EXP_DAYS || 1,
+  secret: process.env.NODE_ENV === 'production' ? process.env.SECRET : 'my-secret',
+  mongodbUri: process.env.MONGODB_URI,
+  pageLimit: process.env.PAGE_LIMIT || 15,
+  trustURL: process.env.TRUST_URL,
+  trustUserName: process.env.TRUST_USER_NAME,
+  trustPassword: process.env.TRUST_PASSWORD
 }

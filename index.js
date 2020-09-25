@@ -4,7 +4,7 @@ const port = 3000
 const point = require('./routes/point')
 const databases = require("./configs/database");
 
-await databases.mongoDB();
+databases.mongoDB();
 
 app.use('/point', point)
 

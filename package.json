@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
@@ -19,9 +20,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "alpha": "cross-env NODE_ENV=alpha node index.js",
-    "staging": "cross-env NODE_ENV=staging && node index.js",
-    "prod": "cross-env NODE_ENV=production && node index.js"
+    "dev": "node index.js"
   },
   "author": "",
   "license": "ISC",
